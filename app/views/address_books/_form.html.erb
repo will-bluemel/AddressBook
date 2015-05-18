@@ -1,0 +1,49 @@
+<%= form_for(@address_book) do |f| %>
+  <% if @address_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address_book.errors.count, "error") %> prohibited this address_book from being saved:</h2>
+
+      <ul>
+      <% @address_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :contact_fname, placeholder: 'please enter the first name' %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :contact_lname, placeholder: 'last name goes here' %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, placeholder: 'example@email.com' %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, placeholder: '555-867-5309' %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, placeholder: '123 W. Main St. Apt #1' %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, placeholder: 'Springfield' %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state, placeholder: 'CA' %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip, placeholder: '90210' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

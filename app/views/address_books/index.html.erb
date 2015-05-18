@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+<h1 id="index_header">My Address Book</h1>
+
+<div id="index_table">
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @address_books.each do |address_book| %>
+      <tr>
+        <td><%= address_book.contact_fname %></td>
+        <td><%= address_book.contact_lname %></td>
+        <td><%= address_book.email %></td>
+        <td><%= address_book.phone %></td>
+        <td><%= address_book.address %></td>
+        <td><%= address_book.city %></td>
+        <td><%= address_book.state %></td>
+        <td><%= address_book.zip %></td>
+        <td><%= link_to 'Show', address_book %></td>
+        <td><%= link_to 'Edit', edit_address_book_path(address_book) %></td>
+        <td><%= link_to 'Delete', address_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Add a new contact', new_address_book_path %>
